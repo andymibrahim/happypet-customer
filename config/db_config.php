@@ -1,12 +1,14 @@
 <?php
 /**
- * HappyPet - Konfigurasi Koneksi Database MySQL (Laragon Localhost)
+ * HappyPet - Konfigurasi Koneksi Database MySQL
  *
- * Pengaturan ini dikonfigurasi untuk menggunakan MySQL secara penuh (real-time)
- * melalui Laragon di komputer lokal Anda (http://localhost/happypet atau http://happypet.test)
- * sehingga seluruh data & interaksi user langsung tersimpan di MySQL dan terlihat di phpMyAdmin
- * (http://localhost/phpmyadmin).
+ * Di Local (Laragon): Menggunakan MySQL 127.0.0.1:3306 (happypet_db).
+ * Di Vercel / Cloud: Mengambil kredensial dari Environment Variables (DB_HOST, DB_NAME, dll).
+ * Jika di Vercel belum diisi DB_HOST, otomatis fallback agar website langsung bisa dibuka & ditinjau.
  */
+
+$isVercel = !empty(getenv('VERCEL')) || !empty($_SERVER['VERCEL']) || !empty($_ENV['VERCEL']);
+$hasRemoteDb = !empty(getenv('DB_HOST'));
 
 return [
     'enabled'       => true,
@@ -20,6 +22,9 @@ return [
     // Otomatis membuat database `happypet_db`, 7 tabel SQL, & data awal jika belum ada
     'auto_migrate'  => true,
 
-    // Strict MySQL mode: false agar sistem 100% menggunakan MySQL (tidak diam-diam fallback ke JSON)
-    'fallback_json' => false,
+    // Di Laragon (Localhost): Strict MySQL (false) agar semua interaksi 100% tersimpan di MySQL phpMyAdmin
+    // Di Vercel tanpa DB_HOST: Fallback diaktifkan (true) agar website langsung bisa diakses tanpa error 503
+    'fallback_json' => (getenv('DB_FALLBACK') !== false) 
+        ? filter_var(getenv('DB_FALLBACK'), FILTER_VALIDATE_BOOLEAN)
+        : ($isVercel && !$hasRemoteDb),
 ];

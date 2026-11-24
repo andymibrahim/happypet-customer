@@ -35,8 +35,13 @@ class HappyPetDB {
 
     private function __construct() {
         $storageDir = __DIR__ . '/../storage';
-        if (!is_dir($storageDir)) {
-            @mkdir($storageDir, 0777, true);
+        $isVercel = !empty(getenv('VERCEL')) || !empty($_SERVER['VERCEL']) || !empty($_ENV['VERCEL']);
+        if ($isVercel || (!is_dir($storageDir) && !@mkdir($storageDir, 0777, true)) || !is_writable($storageDir)) {
+            $tmpDir = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'happypet_storage';
+            if (!is_dir($tmpDir)) {
+                @mkdir($tmpDir, 0777, true);
+            }
+            $storageDir = (is_dir($tmpDir) && is_writable($tmpDir)) ? $tmpDir : sys_get_temp_dir();
         }
         $this->storageFile = $storageDir . '/db.json';
 
@@ -54,7 +59,7 @@ class HappyPetDB {
 
         if ($this->pdo === null) {
             if (array_key_exists('fallback_json', $this->dbConfig) && $this->dbConfig['fallback_json'] === false) {
-                $errDetail = $this->lastError ?: 'Ekstensi pdo_mysql tidak aktif atau service MySQL di Laragon belum menyala.';
+                $errDetail = $this->lastError ?: 'Ekstensi pdo_mysql tidak aktif atau service MySQL belum menyala.';
                 $isApi = str_contains($_SERVER['SCRIPT_NAME'] ?? '', 'api.php');
                 if ($isApi) {
                     if (!headers_sent()) {
@@ -63,7 +68,7 @@ class HappyPetDB {
                     }
                     echo json_encode([
                         'status' => 'error',
-                        'message' => 'Koneksi MySQL gagal. Pastikan service MySQL di Laragon sudah dinyalakan (klik Start All).',
+                        'message' => 'Koneksi MySQL gagal.',
                         'detail' => $errDetail
                     ]);
                     exit;
@@ -72,7 +77,11 @@ class HappyPetDB {
                     throw new RuntimeException('Koneksi MySQL gagal: ' . $errDetail);
                 }
                 http_response_code(503);
-                die('<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><title>MySQL Belum Aktif — HappyPet</title></head><body style="font-family:sans-serif;max-width:620px;margin:60px auto;padding:24px;background:#F8FAFC;color:#1E293B;"><div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:28px;box-shadow:0 8px 24px rgba(0,0,0,0.06);"><h2 style="color:#B42318;margin-top:0;">Koneksi Database MySQL Belum Aktif</h2><p>HappyPet sedang berjalan dalam mode <strong>100% MySQL (Laragon)</strong>.</p><p><strong>Langkah perbaikan:</strong></p><ol><li>Buka aplikasi <strong>Laragon</strong> lalu klik tombol <strong>Start All</strong> hingga Apache &amp; MySQL menyala.</li><li>Periksa konfigurasi di <code>config/db_config.php</code> (host: <code>127.0.0.1</code>, database: <code>happypet_db</code>, username: <code>root</code>).</li></ol><p style="background:#FEECEC;color:#B42318;padding:12px;border-radius:8px;font-size:13px;font-family:monospace;word-break:break-word;">Detail: ' . htmlspecialchars($errDetail) . '</p><button onclick="location.reload()" style="background:#354F52;color:#fff;border:none;padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:600;">Coba Muat Ulang</button></div></body></html>');
+                $isVercelEnv = !empty(getenv('VERCEL')) || !empty($_SERVER['VERCEL']) || !empty($_ENV['VERCEL']);
+                $instructionHtml = $isVercelEnv
+                    ? '<p>Anda sedang menjalankan HappyPet di <strong>Vercel (Cloud)</strong>. Server Vercel tidak dapat mengakses database <code>127.0.0.1</code> lokal di laptop Anda.</p><ol><li>Buka <strong>Vercel Dashboard &gt; Project Settings &gt; Environment Variables</strong>.</li><li>Tambahkan kredensial database cloud: <code>DB_HOST</code>, <code>DB_NAME</code>, <code>DB_USER</code>, <code>DB_PASS</code>, dan <code>DB_PORT</code>.</li><li>Lakukan <strong>Redeploy</strong> project Anda di Vercel.</li></ol>'
+                    : '<p>HappyPet sedang berjalan dalam mode <strong>100% MySQL (Laragon)</strong>.</p><p><strong>Langkah perbaikan:</strong></p><ol><li>Buka aplikasi <strong>Laragon</strong> lalu klik tombol <strong>Start All</strong> hingga Apache &amp; MySQL menyala.</li><li>Periksa konfigurasi di <code>config/db_config.php</code> (host: <code>127.0.0.1</code>, database: <code>happypet_db</code>, username: <code>root</code>).</li></ol>';
+                die('<!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><title>MySQL Belum Aktif — HappyPet</title></head><body style="font-family:sans-serif;max-width:620px;margin:60px auto;padding:24px;background:#F8FAFC;color:#1E293B;"><div style="background:#fff;border:1px solid #E2E8F0;border-radius:16px;padding:28px;box-shadow:0 8px 24px rgba(0,0,0,0.06);"><h2 style="color:#B42318;margin-top:0;">Koneksi Database MySQL Belum Aktif</h2>' . $instructionHtml . '<p style="background:#FEECEC;color:#B42318;padding:12px;border-radius:8px;font-size:13px;font-family:monospace;word-break:break-word;">Detail: ' . htmlspecialchars($errDetail) . '</p><button onclick="location.reload()" style="background:#354F52;color:#fff;border:none;padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:600;">Coba Muat Ulang</button></div></body></html>');
             }
             $this->driver = 'json';
             $this->loadOrSeedJson();
@@ -558,6 +567,21 @@ class HappyPetDB {
             }
         }
 
+        // Jika storageFile diarahkan ke /tmp (Vercel serverless), baca template awal dari storage bawaan
+        $defaultFile = __DIR__ . '/../storage/db.json';
+        if ($this->storageFile !== $defaultFile && file_exists($defaultFile)) {
+            $raw = @file_get_contents($defaultFile);
+            $decoded = json_decode((string)$raw, true);
+            if (is_array($decoded) && isset($decoded['users'], $decoded['packages'], $decoded['bookings'])) {
+                if (!isset($decoded['activity_logs']) || !is_array($decoded['activity_logs'])) {
+                    $decoded['activity_logs'] = [];
+                }
+                $this->data = $decoded;
+                $this->save();
+                return;
+            }
+        }
+
         $this->data = $this->getSeedData();
         $this->data['activity_logs'] = [];
         $this->save();
@@ -591,26 +615,45 @@ class HappyPetDB {
                     'name' => 'Nadya Prameswari',
                     'email' => 'nadya@happypet.id',
                     'password' => $passwordHash,
+                    'role' => 'customer',
                     'phone' => '0812-8899-7766',
                     'address' => 'Jl. Cempaka Putih Tengah No. 24, Jakarta Pusat',
                     'emergency_contact' => 'Raka Pratama (Suami) - 0811-2233-4455',
                     'vet_notes' => 'Klinik Hewan Sehat Sentosa (drh. Clara) - Alergi pakan ayam olahan tertentu.',
                     'avatar' => 'cat-sage',
                     'member_tier' => 'Platinum Paw Member',
-                    'joined_at' => '2025-02-14'
+                    'joined_at' => '2025-02-14',
+                    'created_at' => '2025-02-14 09:15:00'
                 ],
                 [
                     'id' => 2,
                     'name' => 'Budi Santoso',
                     'email' => 'budi@happypet.id',
                     'password' => $passwordHash,
+                    'role' => 'customer',
                     'phone' => '0813-4567-8901',
                     'address' => 'Jl. Kemang Raya No. 18B, Jakarta Selatan',
                     'emergency_contact' => 'Sinta (Istri) - 0812-9988-1122',
                     'vet_notes' => 'Rutin vitamin bulu setiap pagi.',
                     'avatar' => 'dog-amber',
                     'member_tier' => 'Priority Member',
-                    'joined_at' => '2025-06-10'
+                    'joined_at' => '2025-06-10',
+                    'created_at' => '2025-06-10 14:30:00'
+                ],
+                [
+                    'id' => 99,
+                    'name' => 'Administrator HappyPet',
+                    'email' => 'admin@happypet.id',
+                    'password' => password_hash('admin123', PASSWORD_DEFAULT),
+                    'role' => 'admin',
+                    'phone' => '021-8899-0011',
+                    'address' => 'Kantor Pusat HappyPet — Jl. Kemang Raya No. 88, Jakarta Selatan',
+                    'emergency_contact' => 'CS HappyPet 24 Jam',
+                    'vet_notes' => 'Akun Administrator Sistem HappyPet',
+                    'avatar' => 'dog-amber',
+                    'member_tier' => 'Official Admin',
+                    'joined_at' => '2025-01-01',
+                    'created_at' => '2025-01-01 08:00:00'
                 ]
             ],
             'pets' => [

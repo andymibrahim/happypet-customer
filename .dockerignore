@@ -1,0 +1,5 @@
+.git
+.github
+*.bat
+README.md
+storage/sessions/*

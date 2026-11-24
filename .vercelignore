@@ -1,0 +1,7 @@
+.git
+.gitignore
+storage/sessions/
+storage/*.json
+Dockerfile
+render.yaml
+.htaccess

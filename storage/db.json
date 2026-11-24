@@ -1,0 +1,878 @@
+{
+    "midtrans_config": {
+        "environment": "sandbox",
+        "mode": "simulator",
+        "merchant_id": "G812945001",
+        "client_key": "SB-Mid-client-HappyPetDemo2026",
+        "server_key": "SB-Mid-server-HappyPetDemo2026"
+    },
+    "users": [
+        {
+            "id": 1,
+            "name": "Nadya Prameswari",
+            "email": "nadya@happypet.id",
+            "password": "$2y$10$dytMHLJdY44NKsfB2nPRAOUCDkK1FSi66UFtW5Gd9dHNSH0wfCxIq",
+            "phone": "0812-8899-7766",
+            "address": "Jl. Cempaka Putih Tengah No. 24, Jakarta Pusat",
+            "emergency_contact": "Raka Pratama (Suami) - 0811-2233-4455",
+            "vet_notes": "Klinik Hewan Sehat Sentosa (drh. Clara) - Alergi pakan ayam olahan tertentu.",
+            "avatar": "cat-sage",
+            "member_tier": "Platinum Paw Member",
+            "joined_at": "2025-02-14"
+        },
+        {
+            "id": 2,
+            "name": "Budi Santoso",
+            "email": "budi@happypet.id",
+            "password": "$2y$10$dytMHLJdY44NKsfB2nPRAOUCDkK1FSi66UFtW5Gd9dHNSH0wfCxIq",
+            "phone": "0813-4567-8901",
+            "address": "Jl. Kemang Raya No. 18B, Jakarta Selatan",
+            "emergency_contact": "Sinta (Istri) - 0812-9988-1122",
+            "vet_notes": "Rutin vitamin bulu setiap pagi.",
+            "avatar": "dog-amber",
+            "member_tier": "Priority Member",
+            "joined_at": "2025-06-10"
+        },
+        {
+            "id": 3,
+            "name": "Andy Maulana",
+            "email": "andy@gmail.com",
+            "password": "$2y$10$ZlQSQy2cswzkXgMlE\/v8T.kghSGWUS2LigGwajll9m78TjW68rbHm",
+            "phone": "082112347547",
+            "address": "Jl. Tanah Seratus",
+            "emergency_contact": "",
+            "vet_notes": "",
+            "avatar": "cat-sage",
+            "member_tier": "HappyPaw Member",
+            "joined_at": "2026-11-23"
+        },
+        {
+            "id": 4,
+            "name": "Andy Maulana Ibrahim",
+            "email": "andymaulana@gmail.com",
+            "password": "$2y$10$f6LNfMbczG2tHzxJW1tfS.LctKNpLuqOMP1XhOmc3sISF6htvpuAq",
+            "phone": "082112347547",
+            "address": "Jl. Tanah Seratus",
+            "emergency_contact": "",
+            "vet_notes": "",
+            "avatar": "cat-sage",
+            "member_tier": "HappyPaw Member",
+            "joined_at": "2026-11-23"
+        }
+    ],
+    "pets": [
+        {
+            "id": 1,
+            "user_id": 1,
+            "name": "Mochi",
+            "species": "Kucing",
+            "breed": "Scottish Fold",
+            "age": "2 Tahun",
+            "weight": 4.2,
+            "gender": "Betina",
+            "vaccinated": true,
+            "special_notes": "Suka tidur di bantal hangat, makan Royal Canin Hair & Skin 2x sehari."
+        },
+        {
+            "id": 2,
+            "user_id": 1,
+            "name": "Biscuit",
+            "species": "Anjing Kecil",
+            "breed": "Toy Poodle",
+            "age": "1.5 Tahun",
+            "weight": 3.8,
+            "gender": "Jantan",
+            "vaccinated": true,
+            "special_notes": "Sangat aktif, senang bermain bola karet di taman sore hari."
+        },
+        {
+            "id": 3,
+            "user_id": 1,
+            "name": "Oliver",
+            "species": "Anjing Besar",
+            "breed": "Golden Retriever",
+            "age": "3 Tahun",
+            "weight": 26.5,
+            "gender": "Jantan",
+            "vaccinated": true,
+            "special_notes": "Ramah dengan hewan lain, butuh jalan pagi minimal 20 menit."
+        },
+        {
+            "id": 4,
+            "user_id": 2,
+            "name": "Milo",
+            "species": "Kucing",
+            "breed": "British Shorthair",
+            "age": "2 Tahun",
+            "weight": 4.8,
+            "gender": "Jantan",
+            "vaccinated": true,
+            "special_notes": "Suka ruangan tenang ber-AC sejuk."
+        }
+    ],
+    "packages": [
+        {
+            "id": 1,
+            "code": "PKG-COZY",
+            "name": "Cozy Alabaster Room",
+            "category": "Standard Pet Hotel",
+            "price_per_day": 125000,
+            "badge": "Hemat & Steril",
+            "room_size": "1.5m × 1.5m Private Cabin",
+            "suitable_for": "Kucing & Anjing Kecil (< 8 kg)",
+            "description": "Kabin privat ber-AC dengan sirkulasi udara HEPA filter, alas tidur ortopedi lembut, dan pembersihan UV steril 2x sehari.",
+            "facilities": [
+                "Kabin Privat AC & Air Purifier HEPA",
+                "Makan 2x Sehari & Air Mineral RO",
+                "Sesi Bermain Indoor 2x (30 Menit)",
+                "Update Foto & Laporan Harian via WhatsApp",
+                "Pembersihan Litter Box \/ Toilet Berkala"
+            ],
+            "icon": "fa-house-chimney-window",
+            "accent": "sage"
+        },
+        {
+            "id": 2,
+            "code": "PKG-GARDEN",
+            "name": "Sage Garden Suite",
+            "category": "Deluxe Pet Suite",
+            "price_per_day": 215000,
+            "badge": "Paling Populer",
+            "room_size": "2.4m × 2.0m Glass Suite",
+            "suitable_for": "Kucing, Anjing Kecil & Sedang",
+            "description": "Suite kaca kedap suara bernuansa alam dengan akses taman rumput sintetis steril, aromaterapi lavender ramah hewan, dan CCTV 24 jam.",
+            "facilities": [
+                "Suite Kaca Tempered + Balkon Taman Privat",
+                "Akses Live CCTV 24 Jam dari Smartphone",
+                "Aromaterapi Relaksasi & Musik Klasik Hewan",
+                "Sesi Playtime & Agility Bersama Pet Sitter",
+                "Free Brushing & Cologne Harian"
+            ],
+            "icon": "fa-leaf",
+            "accent": "forest"
+        },
+        {
+            "id": 3,
+            "code": "PKG-ROYAL",
+            "name": "Royal Forest VIP Villa",
+            "category": "Luxury Private Villa",
+            "price_per_day": 350000,
+            "badge": "Eksklusif VIP",
+            "room_size": "3.5m × 3.0m Luxury Villa",
+            "suitable_for": "Semua Jenis Hewan (Termasuk Ras Besar)",
+            "description": "Villa mewah eksklusif dengan kasur hypoallergenic premium, dedicated butler, pemeriksaan dokter hewan harian, dan sesi organic spa gratis.",
+            "facilities": [
+                "Private Luxury Villa + Kasur Orthopedic Memory Foam",
+                "1-on-1 Dedicated Pet Butler & Pemeriksaan drh. Harian",
+                "Akses Private Live Stream CCTV Full HD 24\/7",
+                "Gratis 1x Organic Oatmeal Spa & Blow Dry",
+                "Menu Premium Wet Food + Vitamin Imun Harian"
+            ],
+            "icon": "fa-crown",
+            "accent": "amber"
+        },
+        {
+            "id": 4,
+            "code": "PKG-DAYCARE",
+            "name": "Zen Daycare & Social Club",
+            "category": "Daycare & Socialization",
+            "price_per_day": 95000,
+            "badge": "Penitipan Harian",
+            "room_size": "Indoor Playground Area",
+            "suitable_for": "Kucing & Anjing Aktif",
+            "description": "Titip harian dari pagi hingga malam dengan aktivitas sosialisasi terawasi, permainan ketangkasan, dan tidur siang di ruang relaksasi.",
+            "facilities": [
+                "Full Day Care (07.30 - 20.00 WIB)",
+                "Social Playgroup Sesuai Ukuran & Karakter",
+                "Snack Sehat & Hidrasi Terkontrol",
+                "Nap Time di Ruangan Ber-AC Tenang",
+                "Laporan Aktivitas Sore Hari"
+            ],
+            "icon": "fa-sun",
+            "accent": "sand"
+        },
+        {
+            "id": 5,
+            "code": "PKG-MEDICAL",
+            "name": "Gentle Vet & Senior Care",
+            "category": "Special Needs & Senior",
+            "price_per_day": 275000,
+            "badge": "Pendampingan Medis",
+            "room_size": "2.2m × 2.0m Care Suite",
+            "suitable_for": "Hewan Senior \/ Pemulihan \/ Butuh Obat Rutin",
+            "description": "Ruang penitipan tenang dengan pengawasan tim paramedis veteriner, pemberian obat\/suplemen terjadwal, serta lantai anti-slip hangat.",
+            "facilities": [
+                "Observasi Paramedis & Dokter Hewan 2x Sehari",
+                "Pemberian Obat \/ Vitamin Tepat Jadwal",
+                "Lantai Anti-Slip & Pemanas Ruangan Terukur",
+                "Video Call Konsultasi Singkat dengan Dokter Hewan",
+                "Kabin Isolasi Steril & Tenang"
+            ],
+            "icon": "fa-heart-pulse",
+            "accent": "sage"
+        }
+    ],
+    "addons": [
+        {
+            "id": "addon_spa",
+            "name": "Organic Spa & Full Grooming",
+            "price": 85000,
+            "price_type": "flat",
+            "icon": "fa-shower",
+            "desc": "Mandi organik hypoallergenic, potong kuku, pembersihan telinga & blow styling sebelum pulang."
+        },
+        {
+            "id": "addon_shuttle",
+            "name": "Pet Taxi Antar-Jemput ber-AC",
+            "price": 60000,
+            "price_type": "flat",
+            "icon": "fa-van-shuttle",
+            "desc": "Jemput dari rumah & antar kembali dengan armada HappyPet steril (area dalam kota)."
+        },
+        {
+            "id": "addon_cctv",
+            "name": "Akses Private CCTV 24 Jam & Video Reel",
+            "price": 35000,
+            "price_type": "flat",
+            "icon": "fa-video",
+            "desc": "Link streaming privat 24\/7 & kompilasi video HD kegiatan anabul."
+        },
+        {
+            "id": "addon_meal",
+            "name": "Upgrade Premium Grain-Free Meal & Salmon Oil",
+            "price": 30000,
+            "price_type": "per_day",
+            "icon": "fa-bowl-food",
+            "desc": "Pakan super premium + suplemen minyak salmon & probiotik (+Rp 30.000\/hari)."
+        },
+        {
+            "id": "addon_vet",
+            "name": "Medical Check-Up & Dental Cleanse",
+            "price": 75000,
+            "price_type": "flat",
+            "icon": "fa-stethoscope",
+            "desc": "Pemeriksaan fisik menyeluruh oleh dokter hewan + pembersihan plak gigi ringan."
+        }
+    ],
+    "bookings": [
+        {
+            "id": 101,
+            "invoice_number": "INV-HP-20261101-8821",
+            "user_id": 1,
+            "package_id": 2,
+            "package_name": "Sage Garden Suite",
+            "package_category": "Deluxe Pet Suite",
+            "price_per_day": 215000,
+            "pet_name": "Mochi",
+            "pet_species": "Kucing",
+            "pet_breed": "Scottish Fold",
+            "pet_weight": 4.2,
+            "pet_age": "2 Tahun",
+            "check_in": "2026-11-02",
+            "check_out": "2026-11-05",
+            "duration_days": 3,
+            "addons": [
+                {
+                    "id": "addon_spa",
+                    "name": "Organic Spa & Full Grooming",
+                    "price": 85000
+                },
+                {
+                    "id": "addon_cctv",
+                    "name": "Akses Private CCTV 24 Jam & Video Reel",
+                    "price": 35000
+                }
+            ],
+            "addons_total": 120000,
+            "room_subtotal": 645000,
+            "admin_fee": 5000,
+            "total_amount": 770000,
+            "special_notes": "Tolong berikan Royal Canin Hair & Skin takaran 35gr pagi dan malam. Jangan lupa sisir bulu sore hari.",
+            "pickup_option": "Diantar Sendiri ke Lobby HappyPet",
+            "payment_status": "settlement",
+            "payment_method": "Midtrans Snap",
+            "payment_channel": "BCA Virtual Account",
+            "va_number": "8277081288997766",
+            "snap_token": "SNAP-HP-8821-99412A",
+            "midtrans_transaction_id": "MID-TRX-20261101-009281",
+            "paid_at": "2026-11-01 14:22:18",
+            "created_at": "2026-11-01 14:18:05"
+        },
+        {
+            "id": 102,
+            "invoice_number": "INV-HP-20261106-9043",
+            "user_id": 1,
+            "package_id": 3,
+            "package_name": "Royal Forest VIP Villa",
+            "package_category": "Luxury Private Villa",
+            "price_per_day": 350000,
+            "pet_name": "Biscuit",
+            "pet_species": "Anjing Kecil",
+            "pet_breed": "Toy Poodle",
+            "pet_weight": 3.8,
+            "pet_age": "1.5 Tahun",
+            "check_in": "2026-11-07",
+            "check_out": "2026-11-09",
+            "duration_days": 2,
+            "addons": [
+                {
+                    "id": "addon_shuttle",
+                    "name": "Pet Taxi Antar-Jemput ber-AC",
+                    "price": 60000
+                }
+            ],
+            "addons_total": 60000,
+            "room_subtotal": 700000,
+            "admin_fee": 5000,
+            "total_amount": 765000,
+            "special_notes": "Biscuit membawa mainan boneka bebek kesayangannya, mohon ditaruh di kasur.",
+            "pickup_option": "Jemput dengan Pet Taxi HappyPet",
+            "payment_status": "settlement",
+            "payment_method": "Midtrans Snap",
+            "payment_channel": "QRIS (GoPay \/ M-Banking)",
+            "va_number": "QRIS-HP-9043881",
+            "snap_token": "SNAP-HP-9043-77231B",
+            "midtrans_transaction_id": "MID-TRX-20261106-041822",
+            "paid_at": "2026-11-06 19:05:44",
+            "created_at": "2026-11-06 19:03:10"
+        },
+        {
+            "invoice_number": "INV-HP-20261123-6963",
+            "user_id": 1,
+            "package_id": 1,
+            "package_name": "Cozy Alabaster Room",
+            "package_category": "Standard Pet Hotel",
+            "price_per_day": 125000,
+            "pet_name": "Mochi",
+            "pet_species": "Kucing",
+            "pet_breed": "Scottish Fold",
+            "pet_weight": 4.2,
+            "pet_age": "2 Tahun",
+            "check_in": "2026-11-23",
+            "check_out": "2026-11-25",
+            "duration_days": 2,
+            "addons": [
+                {
+                    "id": "addon_spa",
+                    "name": "Organic Spa & Full Grooming",
+                    "price": 85000
+                }
+            ],
+            "addons_total": 85000,
+            "room_subtotal": 250000,
+            "admin_fee": 5000,
+            "total_amount": 340000,
+            "special_notes": "Suka tidur di bantal hangat, makan Royal Canin Hair & Skin 2x sehari.",
+            "pickup_option": "Diantar Sendiri ke Lobby HappyPet",
+            "payment_status": "settlement",
+            "payment_method": "Midtrans Snap",
+            "payment_channel": "QRIS (GoPay \/ M-Banking)",
+            "va_number": "QRIS-HP-1039981",
+            "midtrans_transaction_id": "MID-TRX-20261123-637089",
+            "paid_at": "2026-11-23 15:17:37",
+            "created_at": "2026-11-23 15:17:36",
+            "snap_token": "SNAP-HP-151736-87CE2BCB",
+            "id": 103
+        }
+    ],
+    "activity_logs": [
+        {
+            "id": 30,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "dashboard",
+            "description": "Membuka halaman HappyPet (tab: dashboard).",
+            "metadata": {
+                "tab": "dashboard",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:24:06"
+        },
+        {
+            "id": 29,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_tab",
+            "target_entity": "tab",
+            "target_id": "dashboard",
+            "description": "Membuka menu Dashboard",
+            "metadata": {
+                "tab": "dashboard"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:19:07"
+        },
+        {
+            "id": 28,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_tab",
+            "target_entity": "tab",
+            "target_id": "pets",
+            "description": "Membuka menu Data Hewan Saya",
+            "metadata": {
+                "tab": "pets"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:18:07"
+        },
+        {
+            "id": 27,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "history",
+            "description": "Membuka halaman HappyPet (tab: history).",
+            "metadata": {
+                "tab": "history",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:40"
+        },
+        {
+            "id": 26,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_booking_detail",
+            "target_entity": "booking",
+            "target_id": "103",
+            "description": "Melihat detail & preview struk pesanan INV-HP-20261123-6963.",
+            "metadata": {
+                "invoice_number": "INV-HP-20261123-6963"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:37"
+        },
+        {
+            "id": 25,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "payment_success",
+            "target_entity": "payment",
+            "target_id": "103",
+            "description": "Pembayaran INV-HP-20261123-6963 status: SETTLEMENT via QRIS (GoPay \/ M-Banking).",
+            "metadata": {
+                "invoice_number": "INV-HP-20261123-6963",
+                "payment_status": "settlement",
+                "payment_channel": "QRIS (GoPay \/ M-Banking)",
+                "total_amount": 340000
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:37"
+        },
+        {
+            "id": 24,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "open_payment_modal",
+            "target_entity": "payment",
+            "target_id": "103",
+            "description": "Membuka popup pembayaran Midtrans untuk INV-HP-20261123-6963",
+            "metadata": {
+                "invoice_number": "INV-HP-20261123-6963",
+                "total_amount": 340000
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:36"
+        },
+        {
+            "id": 23,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "create_booking",
+            "target_entity": "booking",
+            "target_id": "103",
+            "description": "Membuat pesanan penitipan baru INV-HP-20261123-6963 (Cozy Alabaster Room untuk Mochi).",
+            "metadata": {
+                "invoice_number": "INV-HP-20261123-6963",
+                "package_name": "Cozy Alabaster Room",
+                "pet_name": "Mochi",
+                "duration_days": 2,
+                "total_amount": 340000,
+                "addons_count": 1
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:36"
+        },
+        {
+            "id": 22,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "open_booking_modal",
+            "target_entity": "package",
+            "target_id": "1",
+            "description": "Membuka popup pemesanan penitipan (Paket: Cozy Alabaster Room)",
+            "metadata": {
+                "package_name": "Cozy Alabaster Room"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:31"
+        },
+        {
+            "id": 21,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_tab",
+            "target_entity": "tab",
+            "target_id": "packages",
+            "description": "Membuka menu Layanan & Paket",
+            "metadata": {
+                "tab": "packages"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:30"
+        },
+        {
+            "id": 20,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "dashboard",
+            "description": "Membuka halaman HappyPet (tab: dashboard).",
+            "metadata": {
+                "tab": "dashboard",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:17"
+        },
+        {
+            "id": 19,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "delete_booking",
+            "target_entity": "booking",
+            "target_id": "103",
+            "description": "Menghapus riwayat transaksi INV-HP-20261109-9510.",
+            "metadata": {
+                "booking_id": 103,
+                "invoice_number": "INV-HP-20261109-9510"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:16"
+        },
+        {
+            "id": 18,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "dashboard",
+            "description": "Membuka halaman HappyPet (tab: dashboard).",
+            "metadata": {
+                "tab": "dashboard",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:11"
+        },
+        {
+            "id": 17,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "login",
+            "target_entity": "auth",
+            "target_id": "1",
+            "description": "User berhasil masuk ke akun HappyPet.",
+            "metadata": {
+                "email": "nadya@happypet.id"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:11"
+        },
+        {
+            "id": 16,
+            "user_id": 4,
+            "user_name": "Andy Maulana Ibrahim",
+            "user_email": "andymaulana@gmail.com",
+            "action_type": "logout",
+            "target_entity": "auth",
+            "target_id": "4",
+            "description": "User keluar (logout) dari sesi HappyPet.",
+            "metadata": [],
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:17:07"
+        },
+        {
+            "id": 15,
+            "user_id": 4,
+            "user_name": "Andy Maulana Ibrahim",
+            "user_email": "andymaulana@gmail.com",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "dashboard",
+            "description": "Membuka halaman HappyPet (tab: dashboard).",
+            "metadata": {
+                "tab": "dashboard",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:13:38"
+        },
+        {
+            "id": 14,
+            "user_id": 4,
+            "user_name": "Andy Maulana Ibrahim",
+            "user_email": "andymaulana@gmail.com",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "dashboard",
+            "description": "Membuka halaman HappyPet (tab: dashboard).",
+            "metadata": {
+                "tab": "dashboard",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:13:33"
+        },
+        {
+            "id": 13,
+            "user_id": 4,
+            "user_name": "Andy Maulana Ibrahim",
+            "user_email": "andymaulana@gmail.com",
+            "action_type": "register",
+            "target_entity": "auth",
+            "target_id": "4",
+            "description": "Pendaftaran akun baru berhasil atas nama Andy Maulana Ibrahim.",
+            "metadata": {
+                "email": "andymaulana@gmail.com",
+                "phone": "082112347547"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:13:33"
+        },
+        {
+            "id": 12,
+            "user_id": 3,
+            "user_name": "Andy Maulana",
+            "user_email": "andy@gmail.com",
+            "action_type": "logout",
+            "target_entity": "auth",
+            "target_id": "3",
+            "description": "User keluar (logout) dari sesi HappyPet.",
+            "metadata": [],
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:12:49"
+        },
+        {
+            "id": 11,
+            "user_id": 3,
+            "user_name": "Andy Maulana",
+            "user_email": "andy@gmail.com",
+            "action_type": "view_tab",
+            "target_entity": "tab",
+            "target_id": "profile",
+            "description": "Membuka menu Edit Profil Saya",
+            "metadata": {
+                "tab": "profile"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:12:46"
+        },
+        {
+            "id": 10,
+            "user_id": 3,
+            "user_name": "Andy Maulana",
+            "user_email": "andy@gmail.com",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "dashboard",
+            "description": "Membuka halaman HappyPet (tab: dashboard).",
+            "metadata": {
+                "tab": "dashboard",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:12:38"
+        },
+        {
+            "id": 9,
+            "user_id": 3,
+            "user_name": "Andy Maulana",
+            "user_email": "andy@gmail.com",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "dashboard",
+            "description": "Membuka halaman HappyPet (tab: dashboard).",
+            "metadata": {
+                "tab": "dashboard",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:10:22"
+        },
+        {
+            "id": 8,
+            "user_id": 3,
+            "user_name": "Andy Maulana",
+            "user_email": "andy@gmail.com",
+            "action_type": "register",
+            "target_entity": "auth",
+            "target_id": "3",
+            "description": "Pendaftaran akun baru berhasil atas nama Andy Maulana.",
+            "metadata": {
+                "email": "andy@gmail.com",
+                "phone": "082112347547"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:10:22"
+        },
+        {
+            "id": 7,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "logout",
+            "target_entity": "auth",
+            "target_id": "1",
+            "description": "User keluar (logout) dari sesi HappyPet.",
+            "metadata": [],
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:09:54"
+        },
+        {
+            "id": 6,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_tab",
+            "target_entity": "tab",
+            "target_id": "dashboard",
+            "description": "Membuka menu Dashboard",
+            "metadata": {
+                "tab": "dashboard"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:09:53"
+        },
+        {
+            "id": 5,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "history",
+            "description": "Membuka halaman HappyPet (tab: history).",
+            "metadata": {
+                "tab": "history",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:09:51"
+        },
+        {
+            "id": 4,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "open_payment_modal",
+            "target_entity": "payment",
+            "target_id": "103",
+            "description": "Membuka popup pembayaran Midtrans untuk INV-HP-20261109-9510",
+            "metadata": {
+                "invoice_number": "INV-HP-20261109-9510",
+                "total_amount": 455000
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:09:47"
+        },
+        {
+            "id": 3,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_booking_detail",
+            "target_entity": "booking",
+            "target_id": "103",
+            "description": "Melihat detail & preview struk pesanan INV-HP-20261109-9510.",
+            "metadata": {
+                "invoice_number": "INV-HP-20261109-9510"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:09:47"
+        },
+        {
+            "id": 2,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "dashboard",
+            "description": "Membuka halaman HappyPet (tab: dashboard).",
+            "metadata": {
+                "tab": "dashboard",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-23 15:09:39"
+        },
+        {
+            "id": 1,
+            "user_id": 1,
+            "user_name": "Nadya Prameswari",
+            "user_email": "nadya@happypet.id",
+            "action_type": "view_page",
+            "target_entity": "page",
+            "target_id": "dashboard",
+            "description": "Membuka halaman HappyPet (tab: dashboard).",
+            "metadata": {
+                "tab": "dashboard",
+                "driver": "json"
+            },
+            "ip_address": "127.0.0.1",
+            "user_agent": "Mozilla\/5.0 (Windows NT 10.0; Win64; x64; rv:160.0) Gecko\/20100101 Firefox\/160.0",
+            "created_at": "2026-11-22 09:18:48"
+        }
+    ]
+}

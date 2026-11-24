@@ -1,0 +1,39 @@
+# ==============================================================================
+# HappyPet - Apache / cPanel / LiteSpeed Production Configuration
+# ==============================================================================
+
+DirectoryIndex index.php index.html
+
+# Prevent directory browsing
+Options -Indexes
+
+# Protect sensitive storage & config files from direct HTTP access
+<FilesMatch "^(db\.json|db_config\.php|\.env|database\.sql|\.git.*)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Deny,Allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Protect storage, sessions, and config folders
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Block direct access to storage and config folder files
+    RewriteRule ^(storage|config)/ - [F,L]
+
+    # Security Headers
+    <IfModule mod_headers.c>
+        Header set X-Content-Type-Options "nosniff"
+        Header set X-Frame-Options "SAMEORIGIN"
+        Header set X-XSS-Protection "1; mode=block"
+    </IfModule>
+</IfModule>
+
+# Enable Gzip Compression for fast loading
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain text/html text/xml text/css application/xml application/xhtml+xml application/rss+xml application/javascript application/x-javascript application/json
+</IfModule>
